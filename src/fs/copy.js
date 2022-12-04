@@ -1,8 +1,12 @@
 import { readdir, mkdir, copyFile } from 'fs/promises';
-import { join } from 'path';
+import { join, dirname } from 'path';
+import { fileURLToPath } from 'url';
 
-const SRC_DIRNAME = './files';
-const DEST_DIRNAME = './files_copy';
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+
+const SRC_DIRNAME = join(__dirname, 'files');
+const DEST_DIRNAME = join(__dirname, 'files_copy');
 
 const copy = async () => {
   try {

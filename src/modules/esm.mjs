@@ -1,11 +1,11 @@
-import * as path from "path";
+import * as path from 'path';
 import { release, version } from 'os';
 import { createServer as createServerHttp } from 'http';
-import * as url from 'url';
+import { fileURLToPath } from 'url';
 import './files/c.js';
 
-const __filename = url.fileURLToPath(import.meta.url);
-const __dirname = url.fileURLToPath(new URL('.', import.meta.url));
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const random = Math.random();
 

@@ -1,10 +1,15 @@
-import { readdir } from "fs/promises";
+import { readdir } from 'fs/promises';
+import { fileURLToPath } from 'url';
+import { dirname, join } from 'path';
 
-const DIRNAME = './files';
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+
+const SRC_DIRNAME = join(__dirname, 'files');
 
 const list = async () => {
   try {
-    const files = await readdir(DIRNAME);
+    const files = await readdir(SRC_DIRNAME);
 
     for (const file of files) {
       console.log(file);
